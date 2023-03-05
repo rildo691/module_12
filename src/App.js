@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useCount } from './useCount';
+import { useToggle } from './useToggle';
 
 function App() {
+  //const [isVisible, toggle] = useToggle()
+  
+  const {count, increase, decrease, restart} = useCount()
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {count}
+      <button onClick={increase}>Increase</button>
+      <button onClick={decrease}>Decrease</button>
+      <button onClick={restart}>Restart</button>
     </div>
   );
 }
 
 export default App;
+
+
+/**
+ * Previous example
+ * 
+ * //const {state: isVisible, toggle} = useToggle()
+ * 
+ * <button onClick={toggle}>
+      {isVisible ? "Hide" : "Show"}
+    </button>
+    {isVisible && <h1>Hidden Text</h1>}
+ * 
+ */
